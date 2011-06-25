@@ -15,17 +15,12 @@ window.notifications = {
     createHTMLNotification: function createHTMLNotification(url) {
         self.postMessage({ type: 'html', args: arguments });
     },
-    checkPermission: function checkPermission() {
-        // TODO: ask permission.
-        
-        // self.postMessage({ type: 'permission', args: {
-        //     
-        // } });
-        
+    checkPermission: function checkPermission() {        
         return window.notifications.permissionAllowed;
-        // return 0; // 0 == PERMISSION_ALLOWED
     },
-    permissionAllowed: 1, // Real copy of permissions is kept in main.js, this is just used for checkPermission()
+    // Real copy of permissions is kept in main.js, 
+    // this is just used for checkPermission(), which isn't async.
+    permissionAllowed: 1, // 1 == PERMISSION_NOT_ALLOWED
     permissionCallback: function emptyPermissionCallback() {},
     requestPermission: function requestPermission(callback) {
         // TODO: ask permission.
